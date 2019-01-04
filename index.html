@@ -11,13 +11,15 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Hello, world!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="smoothscroll.js"></script>
 </head>
 
 <body class="bg-light">
     <div class="bg-dark p-3">
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <h4><a class="nav-link active " href="#top_artists">Top Artists</a></h4>
+                <h4><a class="nav-link" href="#top_artists">Top Artists</a></h4>
             </li>
             <li class="nav-item">
                 <h4><a class="nav-link" href="#top_tracks">Top Songs</a></h4>
@@ -26,7 +28,7 @@
                 <h4><a class="nav-link" href="#top_genres">Top Genres</a></h4>
             </li>
             <li class="nav-item">
-                <h4><a class="nav-link" href="#recommended">Recommended</a></h4>
+                <h4><a class="nav-link  " href="#recommended">Recommended</a></h4>
             </li>
         </ul>
     </div>
@@ -44,9 +46,9 @@
         </div>
     </div>
 
-    <div id="top_artists" class="p-6 jumbotron">
+    <div id="top_artists" class="p-6 jumbotron border">
 
-        <h3>Top Artists</h3>
+        <h3>Your most played artists</h3>
 
         <div class="container-fluid">
             <div class="row">
@@ -155,8 +157,8 @@
         </div>
 
     </div>
-    <div id="top_tracks" class="p-6 jumbotron">
-        <h3>Top Tracks</h3>
+    <div id="top_tracks" class="p-6 jumbotron border">
+        <h3>Most played tracks</h3>
 
         <div class="container-fluid">
             <div class="row">
@@ -258,7 +260,7 @@
         </div>
 
     </div>
-    <div id="top_genres" class="p-6 jumbotron">
+    <div id="top_genres" class="p-6 jumbotron border">
         <h3>Favourite Genres</h3>
         <br>
         <div class="container-fluid">
@@ -279,131 +281,140 @@
         </div>
     </div>
 
-    <div id="recommended" class="p-6 jumbotron">
+    <div id="recommended" class="p-6 jumbotron border">
+        <h2>Based on your results, here are your recommendedations</h2>
+        <br>
+        <div class="container col-md-12 border card bg-light mb-3 p-3">
+            <div class="panel panel-default">
+                <h3>Recommended Artists</h3>
+                <p>Add all time, currently?</p>
+                <div class="container-fluid panel-body row">
+                    <div id="container" class="col p-3">
+                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                        <div id="overlay">
+                            <div id="text">
+                                <p>Drake</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container" class="col p-3">
+                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                        <div id="overlay">
+                            <div id="text">
+                                <p>Drake</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container" class="col p-3">
+                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                        <div id="overlay">
+                            <div id="text">
+                                <p>Drake</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container" class="col p-3">
+                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                        <div id="overlay">
+                            <div id="text">
+                                <p>Drake</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container" class="col p-3">
+                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                        <div id="overlay">
+                            <div id="text">
+                                <p>Drake</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h3>Recommended Tracks</h3>
+                <p>Add all time, currently?</p>
+                <div class="row container-fluid p-3">
 
-        <h3>Recommended Artists</h3>
-        <p>Add all time, currently?</p>
-        <div class="container-fluid row">
-            <div id="container" class="col p-3">
-                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                <div id="overlay">
-                    <div id="text">
-                        <p>Drake</p>
+                    <div class="col">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">Gods Plan</h5>
+                                    Scorpion
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div id="container" class="col p-3">
-                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                <div id="overlay">
-                    <div id="text">
-                        <p>Drake</p>
-                    </div>
-                </div>
-            </div>
-            <div id="container" class="col p-3">
-                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                <div id="overlay">
-                    <div id="text">
-                        <p>Drake</p>
-                    </div>
-                </div>
-            </div>
-            <div id="container" class="col p-3">
-                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                <div id="overlay">
-                    <div id="text">
-                        <p>Drake</p>
-                    </div>
-                </div>
-            </div>
-            <div id="container" class="col p-3">
-                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                <div id="overlay">
-                    <div id="text">
-                        <p>Drake</p>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        <h3>Recommended Tracks</h3>
-        <p>Add all time, currently?</p>
-        <div class="row">
-            <div class="col">
-                <ul class="list-unstyled">
-                    <li class="media">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                    <li class="media">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col">
-                <ul class="list-unstyled">
-                    <li class="media">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                    <li class="media">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col">
-                <ul class="list-unstyled">
-                    <li class="media">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                    <li class="media my-4">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                    <li class="media">
-                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">Gods Plan</h5>
-                            Scorpion
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
         <br>
         <div class="card text-center">
             <div class="card-body">
@@ -413,6 +424,18 @@
             </div>
         </div>
     </div>
+
 </body>
+
+<footer class="page-footer font-small bg-dark text-light pt-4">
+    <div class="container-fluid text-center text-md-left">
+        <h5 class="text-uppercase">Resources used:</h5>
+        <p>Spotify API, Bootstrap, jQuery, Go</p>
+    </div>
+    </div>
+    <div class="footer-copyright text-center py-3">
+        Developed by: <a href="https://github.com/erickchin">Erick Chin</a>
+    </div>
+</footer>
 
 </html>
