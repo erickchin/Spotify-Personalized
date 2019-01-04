@@ -6,22 +6,28 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/spotify"
 	"io/ioutil"
-	"../spotify/apikey"
+	"../spotify/constants"
 )
 
 const htmlIndex = "<html><body><a href='/SpotifyLogin'>Log in with Spotify</a></body></html>"
 
 var (
-    spotifyOauthConfig = &oauth2.Config{
+    spotifyOauthConfig = &oauth2.Config {
         RedirectURL:    "http://localhost:3000/SpotifyCallback",
-        ClientID:    constants.ClientID,
-        ClientSecret: constants.ClientSecret,
+        ClientID:    c.ClientID,
+        ClientSecret: c.ClientSecret,
         Scopes:       []string{"user-read-private",
             "user-read-email"},
         Endpoint:     spotify.Endpoint,
     }
     oauthStateString = "state"
 )
+
+type Client struct  {
+    connection *http.Client
+    baseUrl string
+}
+
 
 func main() {
 	http.HandleFunc("/", handleMain)
@@ -56,12 +62,12 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
         http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
         return
 	}
-	// Use token
-	client := spotifyOauthConfig.Client(oauth2.NoContext, token)
-	
-	response, err := client.Get("https://api.spotify.com/v1/me")
+    // Use token
+    userClient := spotifyOauthConfig.Client(oauth2.NoContext, token)
 
-    defer response.Body.Close()
-    contents, err := ioutil.ReadAll(response.Body)
-    fmt.Fprintf(w, "Content: %s\n", contents)
+	client := Client {userClient, "https://api.spotify.com/v1/"}
+    
+    user := client.connection.GetPersonalInfo()
+    fmt.Fprintf(w, "Content: %s\n", user.DisplayName)
 }
+
