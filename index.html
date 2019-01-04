@@ -17,264 +17,401 @@
     <div class="bg-dark p-3">
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <h4><a class="nav-link active " href="#">Top Artists</a></h4>
+                <h4><a class="nav-link active " href="#top_artists">Top Artists</a></h4>
             </li>
             <li class="nav-item">
-                <h4><a class="nav-link" href="#">Top Songs</a></h4>
+                <h4><a class="nav-link" href="#top_tracks">Top Songs</a></h4>
             </li>
             <li class="nav-item">
-                <h4><a class="nav-link" href="#">Top Genres</a></h4>
+                <h4><a class="nav-link" href="#top_genres">Top Genres</a></h4>
             </li>
             <li class="nav-item">
-                <h4><a class="nav-link" href="#">Recommended</a></h4>
+                <h4><a class="nav-link" href="#recommended">Recommended</a></h4>
             </li>
         </ul>
     </div>
-    <div class="container-fluid m-3 rounded">
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, NAME!</h1>
-            <p class="lead">Here is your personalized summary and recommendations based on your Spotify profile!</p>
-            <hr class="my-4">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/banner.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <p class="display-2">Hello, NAME!</p>
+                    <p class="lead">Here is your personalized summary and recommendations based on your Spotify
+                        profile!</p>
+                    <hr>
+                </div>
+            </div>
         </div>
-        <div class="p-3 jumbotron">
+    </div>
 
-            <h3>Top Artists:</h3>
+    <div id="top_artists" class="p-6 jumbotron">
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div id="container" class="col p-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Drake</h5>
-                                <p class="card-text">10000 followers</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item  center-block text-center">
-                                    Popularity<br><br>
-                                    <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
-                                </li>
-                            </ul>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Spotify page</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                            <div class="card" style="width: 18rem;">
-                                    <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Drake</h5>
-                                        <p class="card-text">10000 followers</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item  center-block text-center">
-                                            Popularity<br><br>
-                                            <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
-                                        </li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Spotify page</a>
-                                    </div>
-                                </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                            <div class="card" style="width: 18rem;">
-                                    <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Drake</h5>
-                                        <p class="card-text">10000 followers</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item  center-block text-center">
-                                            Popularity<br><br>
-                                            <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
-                                        </li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Spotify page</a>
-                                    </div>
-                                </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                            <div class="card" style="width: 18rem;">
-                                    <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Drake</h5>
-                                        <p class="card-text">10000 followers</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item  center-block text-center">
-                                            Popularity<br><br>
-                                            <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
-                                        </li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Spotify page</a>
-                                    </div>
-                                </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                            <div class="card" style="width: 18rem;">
-                                    <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Drake</h5>
-                                        <p class="card-text">10000 followers</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item  center-block text-center">
-                                            Popularity<br><br>
-                                            <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
-                                        </li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Spotify page</a>
-                                    </div>
-                                </div>
-                </div>
-            </div>
-                <br>
+        <h3>Top Artists</h3>
 
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-lg justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">All-time</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">6 Months</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1 Month</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="p-3 jumbotron">
-
-            <h3>Top Tracks:</h3>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="container" class="col p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Drake</h5>
+                            <p class="card-text">10000 followers</p>
                         </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="container" class="col p-3">
-                        <img id="image" class="rounded img-fluid" src="img/drake.jpg">
-                        <div id="overlay">
-                            <div id="text">
-                                <p>Drake</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div>
-                <nav aria-label="...">
-                    <ul class="pagination pagination-lg justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">All-time</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">6 Months</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1 Month</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-        </div>
-        <div class="p-3 jumbotron">
-            <h3>Favourite Genres:</h3>
-            <br>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-4">
-                        <img class="rounded float-left" style="max-width:500px" src="img/drake.jpg">
-                    </div>
-                    <div class="col-4">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item  center-block text-center">
+                                Popularity<br><br>
+                                <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
+                            </li>
                         </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Spotify page</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Drake</h5>
+                            <p class="card-text">10000 followers</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item  center-block text-center">
+                                Popularity<br><br>
+                                <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Spotify page</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Drake</h5>
+                            <p class="card-text">10000 followers</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item  center-block text-center">
+                                Popularity<br><br>
+                                <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Spotify page</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Drake</h5>
+                            <p class="card-text">10000 followers</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item  center-block text-center">
+                                Popularity<br><br>
+                                <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Spotify page</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/drake.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Drake</h5>
+                            <p class="card-text">10000 followers</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item  center-block text-center">
+                                Popularity<br><br>
+                                <img class="img-fluid" src="img/circle.png" style="max-width: 100px" alt="Card image cap">
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Spotify page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <nav aria-label="...">
+                <ul class="pagination pagination-lg justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">All-time</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">6 Months</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1 Month</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    <div id="top_tracks" class="p-6 jumbotron">
+        <h3>Top Tracks</h3>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="container" class="col p-3">
+                    <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <br>
+        <div>
+            <nav aria-label="...">
+                <ul class="pagination pagination-lg justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">All-time</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">6 Months</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1 Month</a></li>
+                </ul>
+            </nav>
+        </div>
 
+    </div>
+    <div id="top_genres" class="p-6 jumbotron">
+        <h3>Favourite Genres</h3>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <img class="rounded float-left" style="max-width:500px" src="img/drake.jpg">
+                </div>
+                <div class="col-4">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="recommended" class="p-6 jumbotron">
+
+        <h3>Recommended Artists</h3>
+        <p>Add all time, currently?</p>
+        <div class="container-fluid row">
+            <div id="container" class="col p-3">
+                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                <div id="overlay">
+                    <div id="text">
+                        <p>Drake</p>
+                    </div>
+                </div>
+            </div>
+            <div id="container" class="col p-3">
+                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                <div id="overlay">
+                    <div id="text">
+                        <p>Drake</p>
+                    </div>
+                </div>
+            </div>
+            <div id="container" class="col p-3">
+                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                <div id="overlay">
+                    <div id="text">
+                        <p>Drake</p>
+                    </div>
+                </div>
+            </div>
+            <div id="container" class="col p-3">
+                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                <div id="overlay">
+                    <div id="text">
+                        <p>Drake</p>
+                    </div>
+                </div>
+            </div>
+            <div id="container" class="col p-3">
+                <img id="image" class="rounded img-fluid" src="img/drake.jpg">
+                <div id="overlay">
+                    <div id="text">
+                        <p>Drake</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Recommended Tracks</h3>
+        <p>Add all time, currently?</p>
+        <div class="row">
+            <div class="col">
+                <ul class="list-unstyled">
+                    <li class="media">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                    <li class="media my-4">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="list-unstyled">
+                    <li class="media">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                    <li class="media my-4">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="list-unstyled">
+                    <li class="media">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                    <li class="media my-4">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="align-self-center mr-3" src="img/drake.jpg" style="max-width: 128px" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">Gods Plan</h5>
+                            Scorpion
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Like the results?</h5>
+                <p class="card-text">Create a playlist based off of these results!</p>
+                <a href="#" class="btn btn-primary">Create a playlist!</a>
+            </div>
+        </div>
     </div>
 </body>
 
