@@ -6,6 +6,7 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/spotify"
 	"io/ioutil"
+	"../spotify/apikey"
 )
 
 const htmlIndex = "<html><body><a href='/SpotifyLogin'>Log in with Spotify</a></body></html>"
@@ -13,8 +14,8 @@ const htmlIndex = "<html><body><a href='/SpotifyLogin'>Log in with Spotify</a></
 var (
     spotifyOauthConfig = &oauth2.Config{
         RedirectURL:    "http://localhost:3000/SpotifyCallback",
-        ClientID:    "90a12be4ee084b198c230a8cfbc0a1ed",
-        ClientSecret: "c5a648faa4794efebac9fef009c2bf55",
+        ClientID:    constants.ClientID,
+        ClientSecret: constants.ClientSecret,
         Scopes:       []string{"user-read-private",
             "user-read-email"},
         Endpoint:     spotify.Endpoint,
