@@ -11,8 +11,7 @@ type User struct {
 		Spotify string `json:"spotify"`
 	} `json:"external_urls"`
 	Followers struct {
-		Href  interface{} `json:"href"`
-		Total int         `json:"total"`
+		Followers int         `json:"total"`
 	} `json:"followers"`
 	Href   string `json:"href"`
 	ID     string `json:"id"`
@@ -26,17 +25,27 @@ type User struct {
 }
 
 func (c *Client) GetPersonalInfo() (*User, error) {
-	apiURL := fmt.Sprintf("%s/me", c.baseUrl)
+	apiURL := fmt.Sprintf("%sme", c.baseUrl)
 
 	var u User
 
+	// Get api request
 	response, err := c.connection.Get(apiURL)
 	if err != nil {
 		return nil, err
 	}
 
 	defer response.Body.Close()
-    json.NewDecoder(response.Body).Decode(u)
 
+    /*data, _ := ioutil.ReadAll(response.Body)
+    fmt.Println(string(data))*/
+
+    if err := json.NewDecoder(response.Body).Decode(&u); err != nil {
+		return nil, err
+	}
 	return &u, nil
+}
+
+func (u *User) GetDisplayPicture() (string) {
+	return u.Images[0].URL
 }

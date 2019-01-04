@@ -5,8 +5,7 @@ import (
 	"net/http"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/spotify"
-	"io/ioutil"
-	"../spotify/constants"
+    "../spotify/constants"
 )
 
 const htmlIndex = "<html><body><a href='/SpotifyLogin'>Log in with Spotify</a></body></html>"
@@ -27,7 +26,6 @@ type Client struct  {
     connection *http.Client
     baseUrl string
 }
-
 
 func main() {
 	http.HandleFunc("/", handleMain)
@@ -67,7 +65,6 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
 
 	client := Client {userClient, "https://api.spotify.com/v1/"}
     
-    user := client.connection.GetPersonalInfo()
-    fmt.Fprintf(w, "Content: %s\n", user.DisplayName)
+    user, err := client.GetPersonalInfo()
+    fmt.Fprintf(w, "Content: %i\n", user.Followers)
 }
-
