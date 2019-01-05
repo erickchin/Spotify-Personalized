@@ -12,6 +12,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Spotify - Personalized</title>
     <link rel="icon" href="img/Spotify_Icon_RGB_Black.png">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="smoothscroll.js"></script>
 </head>
@@ -184,11 +187,10 @@
     </div>
     <div id="top_tracks" class="p-6 jumbotron border">
         <h3>Most played tracks</h3>
-
         <div class="container-fluid">
             <div class="row">
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -196,7 +198,7 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -204,7 +206,7 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -212,7 +214,7 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -220,25 +222,16 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
-                    <div id="overlay">
-                        <div id="text">
-                            <p>Drake</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -246,7 +239,7 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -254,7 +247,7 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
@@ -262,14 +255,21 @@
                     </div>
                 </div>
                 <div id="container" class="col p-3">
-                    <img id="image" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
                     <div id="overlay">
                         <div id="text">
                             <p>Drake</p>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div id="container" class="col p-3">
+                    <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="img/drake.jpg">
+                    <div id="overlay">
+                        <div id="text">
+                            <p>Drake</p>
+                        </div>
+                    </div>
+                </div>
         </div>
         <br>
         <div>
@@ -288,28 +288,14 @@
     <div id="top_genres" class="p-6 jumbotron border">
         <h3>Favourite Genres</h3>
         <br>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-4">
-                    <img class="rounded float-left" style="max-width:500px" src="img/drake.jpg">
-                </div>
-                <div class="col-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                </div>
-            </div>
+        
         </div>
     </div>
 
     <div id="recommended" class="p-6 jumbotron border">
         <h2>Based on your results, here are your recommendedations</h2>
         <br>
-        <div class="container col-md-12 border card bg-light mb-3 p-3">
+        <div class="container col-12 border card bg-light mb-3 p-3">
             <div class="panel panel-default">
                 <h3>Recommended Artists</h3>
                 <p>Add all time, currently?</p>
@@ -359,7 +345,6 @@
                 <h3>Recommended Tracks</h3>
                 <p>Add all time, currently?</p>
                 <div class="row container-fluid p-3">
-
                     <div class="col">
                         <ul class="list-unstyled">
                             <li class="media">
