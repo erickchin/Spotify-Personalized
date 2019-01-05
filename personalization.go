@@ -52,11 +52,11 @@ func (u *User) GetDisplayPicture() (string) {
 
 // TODO: Add return value
 // timeSpan - long_term: years, medium_term: 6 months, short_term: 4 weeks
-func (c *Client) GetUserTopArtists(timeSpan string) (*Artists, error) {
+func (c *Client) GetUserTopArtists(timeSpan string) (*[]Artist, error) {
 	// spotify get
 	var apiURL string
 
-	timeSpan {
+	switch timeSpan {
 		case "long_term":
 			apiURL = fmt.Sprintf("%sme/top/artists?time_range=long_term&limit=5", c.baseUrl)
 		case "medium_term":
@@ -77,13 +77,15 @@ func (c *Client) GetUserTopArtists(timeSpan string) (*Artists, error) {
 
 	defer response.Body.Close()
 
-    if err := json.NewDecoder(response.Body).Decode(&u); err != nil {
+    if err := json.NewDecoder(response.Body).Decode(&ta); err != nil {
 		return nil, err
 	}
 
-	var artists []Artists
+	var artists []Artist
 
-	for _
+	/*for _, item := range ta.Items {
+
+	}*/
 
 	return &artists, nil
 }

@@ -1,5 +1,7 @@
-$(".sliding-link").click(function(e) {
-    e.preventDefault();
-    var aid = $(this).attr("href");
-    $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
 });

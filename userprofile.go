@@ -46,6 +46,6 @@ func (c *Client) GetPersonalInfo() (*User, error) {
 	return &u, nil
 }
 
-func (u *User) GetDisplayPicture() (string) {
+/*func (u *User) GetDisplayPicture() (string) {
 	return u.Images[0].URL
-}
+}*/
