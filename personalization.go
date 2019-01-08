@@ -219,12 +219,12 @@ func (c *Client) GetUserTopSongs(timeSpan string) (*[]Song, error) {
 
 // TODO: Add return value
 func (c *Client) GetUserFavouriteGenres() {
-	// spotify get
+	// Get artists genres, find top count
 }
 
 // TODO: Add return value
 func (c *Client) GetRecommendedArtists() {
-	// spotify get
+	// spotify get --> Take artist IDs, and use https://developer.spotify.com/console/get-artist-related-artists/
 }
 
 // TODO: Add return value
