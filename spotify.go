@@ -17,7 +17,7 @@ var (
         ClientID:    c.ClientID,
         ClientSecret: c.ClientSecret,
         Scopes:       []string{"user-read-private",
-            "user-read-email"},
+            "user-read-email", "user-top-read"},
         Endpoint:     spotify.Endpoint,
     }
     oauthStateString = "state"
@@ -96,9 +96,10 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
 
 	client := Client {userClient, "https://api.spotify.com/v1/"}
     
-    user, err := client.GetPersonalInfo()
-    log.Println(user.Followers)
+    user, err := client.GetUserTopArtists("medium_term")
+    topGenre, err := client.GetUserFavouriteGenres(*user)
 
+    log.Println(topGenre)
     
     n := Data {Name: "Erick"}
     index.Execute(w, n)

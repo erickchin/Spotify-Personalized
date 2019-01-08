@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"encoding/json"
 	"log"
+	"sort"
 )
 
 type TopArtists struct {
@@ -218,8 +219,51 @@ func (c *Client) GetUserTopSongs(timeSpan string) (*[]Song, error) {
 }
 
 // TODO: Add return value
-func (c *Client) GetUserFavouriteGenres() {
+func (c *Client) GetUserFavouriteGenres(artists []Artist) ([]string, error) {
 	// Get artists genres, find top count
+	//nil
+	var m map[string]int
+	// allocates and initializes
+	m = make(map[string]int)
+
+	for _, item := range artists {
+		for _, genre := range item.Genres {
+				m[genre]++
+		}
+	}
+
+	type GenreCount struct {
+		GenreName string
+		Count int
+	}
+
+	var genreArray []GenreCount
+	for gn, c := range m {
+		genreArray = append(genreArray, GenreCount{gn, c})
+	}
+
+	// Sorting the slice by value
+	sort.Slice(genreArray, func(i, j int) bool {
+		return genreArray[i].Count > genreArray[j].Count
+	})
+
+	top := make([]string, 0)
+
+	// Get top 5 if there is enough
+	if len(genreArray) >= 5 {
+		top := make([]string, 0)
+
+		for _, genre := range genreArray[:5] {
+			top = append(top, genre.GenreName)
+		}
+		return top, nil
+	}
+
+	for _, genre := range genreArray {
+		top = append(top, genre.GenreName)
+	}
+	
+	return top, nil
 }
 
 // TODO: Add return value
