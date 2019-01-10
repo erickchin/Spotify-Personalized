@@ -98,8 +98,8 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
     
     user, err := client.GetUserTopArtists("medium_term", 20)
     recommended, err := client.GetRecommendedArtists(*user)
-
-    log.Println((*recommended))
+    songs, err := client.GetRecommendedSongs(*recommended)
+    log.Println((songs))
     
     n := Data {Name: "Erick"}
     index.Execute(w, n)

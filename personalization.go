@@ -173,6 +173,74 @@ type Artists struct {
 	} `json:"artists"`
 }
 
+type SeedRecommendations struct {
+	Tracks []struct {
+		Album struct {
+			AlbumType string `json:"album_type"`
+			Artists   []struct {
+				ExternalUrls struct {
+					Spotify string `json:"spotify"`
+				} `json:"external_urls"`
+				Href string `json:"href"`
+				ID   string `json:"id"`
+				Name string `json:"name"`
+				Type string `json:"type"`
+				URI  string `json:"uri"`
+			} `json:"artists"`
+			AvailableMarkets []string `json:"available_markets"`
+			ExternalUrls     struct {
+				Spotify string `json:"spotify"`
+			} `json:"external_urls"`
+			Href   string `json:"href"`
+			ID     string `json:"id"`
+			Images []struct {
+				Height int    `json:"height"`
+				URL    string `json:"url"`
+				Width  int    `json:"width"`
+			} `json:"images"`
+			Name string `json:"name"`
+			Type string `json:"type"`
+			URI  string `json:"uri"`
+		} `json:"album"`
+		Artists []struct {
+			ExternalUrls struct {
+				Spotify string `json:"spotify"`
+			} `json:"external_urls"`
+			Href string `json:"href"`
+			ID   string `json:"id"`
+			Name string `json:"name"`
+			Type string `json:"type"`
+			URI  string `json:"uri"`
+		} `json:"artists"`
+		AvailableMarkets []string `json:"available_markets"`
+		DiscNumber       int      `json:"disc_number"`
+		DurationMs       int      `json:"duration_ms"`
+		Explicit         bool     `json:"explicit"`
+		ExternalIds      struct {
+			Isrc string `json:"isrc"`
+		} `json:"external_ids"`
+		ExternalUrls struct {
+			Spotify string `json:"spotify"`
+		} `json:"external_urls"`
+		Href        string `json:"href"`
+		ID          string `json:"id"`
+		Name        string `json:"name"`
+		Popularity  int    `json:"popularity"`
+		PreviewURL  string `json:"preview_url"`
+		TrackNumber int    `json:"track_number"`
+		Type        string `json:"type"`
+		URI         string `json:"uri"`
+	} `json:"tracks"`
+	Seeds []struct {
+		InitialPoolSize    int    `json:"initialPoolSize"`
+		AfterFilteringSize int    `json:"afterFilteringSize"`
+		AfterRelinkingSize int    `json:"afterRelinkingSize"`
+		ID                 string `json:"id"`
+		Type               string `json:"type"`
+		Href               string `json:"href"`
+	} `json:"seeds"`
+}
+
 func (u *User) GetDisplayPicture() (string) {
 	return u.Images[0].URL
 }
@@ -426,10 +494,35 @@ func (c *Client) GetRecommendedArtists(artists []Artist) (*[]Artist, error) {
 	return &finalzedArtists, nil
 }
 
+func (c *Client) GetRecommendedSongs(recommendedArtists []Artist) (*[]Song, error) {
+	var recommendations SeedRecommendations
+	
+	// TODO: Seed genre, artists, dyanamic 
+	apiURL2 :=  fmt.Sprintf("%srecommendations?limit=10&seed_artists=%s,%s,%s,%s,%s", c.baseUrl, recommendedArtists[0].Id, recommendedArtists[1].Id, recommendedArtists[2].Id, recommendedArtists[3].Id, recommendedArtists[4].Id)
 
-// TODO: Add return value
-func (c *Client) GetRecommendedSongs() {
-	// Get top artists --> seed --> Get top songs
+	// Get info of artists through multiple artists endpoint
+	response, err := c.connection.Get(apiURL2)
+	if err != nil {
+		log.Println("Failed to request")
+		return nil, err
+	}
+
+	defer response.Body.Close()
+	
+	if err := json.NewDecoder(response.Body).Decode(&recommendations); err != nil {
+		log.Println("Failed to convert JSON")
+		log.Println(err)
+		return nil, err
+	}
+
+	songs := make([]Song, 0)
+
+	for _, item := range recommendations.Tracks {
+		songs = append(songs, Song {Id: item.ID, Uri: item.URI, SongUrl: item.Href, Name: item.Name,
+			AlbumName: item.Album.Name, AlbumArtUrl: item.Album.Images[0].URL, Artist: item.Artists[0].Name})
+	}
+
+	return &songs, nil
 }
 
 // TODO: Add return value
