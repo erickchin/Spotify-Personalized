@@ -37,6 +37,28 @@ type TopArtists struct {
 	Next     string      `json:"next"`
 }
 
+type SpotifyArtist struct {
+	ExternalUrls struct {
+		Spotify string `json:"spotify"`
+	} `json:"external_urls"`
+	Followers struct {
+		Href  interface{} `json:"href"`
+		Total int         `json:"total"`
+	} `json:"followers"`
+	Genres []string `json:"genres"`
+	Href   string   `json:"href"`
+	ID     string   `json:"id"`
+	Images []struct {
+		Height int    `json:"height"`
+		URL    string `json:"url"`
+		Width  int    `json:"width"`
+	} `json:"images"`
+	Name       string `json:"name"`
+	Popularity int    `json:"popularity"`
+	Type       string `json:"type"`
+	URI        string `json:"uri"`
+}
+
 type Artist struct {
 	Id string
 	Uri string
@@ -127,24 +149,49 @@ type Song struct {
 	Artist string
 }
 
+type Artists struct {
+	Artists []struct {
+		ExternalUrls struct {
+			Spotify string `json:"spotify"`
+		} `json:"external_urls"`
+		Followers struct {
+			Href  interface{} `json:"href"`
+			Total int         `json:"total"`
+		} `json:"followers"`
+		Genres []string `json:"genres"`
+		Href   string   `json:"href"`
+		ID     string   `json:"id"`
+		Images []struct {
+			Height int    `json:"height"`
+			URL    string `json:"url"`
+			Width  int    `json:"width"`
+		} `json:"images"`
+		Name       string `json:"name"`
+		Popularity int    `json:"popularity"`
+		Type       string `json:"type"`
+		URI        string `json:"uri"`
+	} `json:"artists"`
+}
+
 func (u *User) GetDisplayPicture() (string) {
 	return u.Images[0].URL
 }
 
 // timeSpan - long_term: years, medium_term: 6 months, short_term: 4 weeks
-func (c *Client) GetUserTopArtists(timeSpan string) (*[]Artist, error) {
+// limit 1-50
+func (c *Client) GetUserTopArtists(timeSpan string, limit int) (*[]Artist, error) {
 	// spotify get
 	var apiURL string
 
 	switch timeSpan {
 		case "long_term":
-			apiURL = fmt.Sprintf("%sme/top/artists?time_range=long_term&limit=5", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/artists?time_range=long_term&limit=%d", c.baseUrl, limit)
 		case "medium_term":
-			apiURL = fmt.Sprintf("%sme/top/artists?time_range=medium_term&limit=5", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/artists?time_range=medium_term&limit=%d", c.baseUrl, limit)
 		case "short_term":
-			apiURL = fmt.Sprintf("%sme/top/artists?time_range=short_term&limit=5", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/artists?time_range=short_term&limit=%d", c.baseUrl, limit)
 		default:
-			apiURL = fmt.Sprintf("%sme/top/artists?time_range=long_term&limit=5", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/artists?time_range=long_term&limit=%d", c.baseUrl, limit)
 	}
 
 	var ta TopArtists
@@ -174,21 +221,22 @@ func (c *Client) GetUserTopArtists(timeSpan string) (*[]Artist, error) {
 	return &artists, nil
 }
 
-// TODO: Add return value
-func (c *Client) GetUserTopSongs(timeSpan string) (*[]Song, error) {
+// timeSpan - long_term: years, medium_term: 6 months, short_term: 4 weeks
+// limit 1-50
+func (c *Client) GetUserTopSongs(timeSpan string, limit int) (*[]Song, error) {
 	// spotify get
 	var apiURL string
 
 	switch timeSpan {
 		case "long_term":
-			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=long_term&limit=10", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=long_term&limit=%d", c.baseUrl, limit)
 		case "medium_term":
 			log.Println("Medium term")
-			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=medium_term&limit=10", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=medium_term&limit=%d", c.baseUrl, limit)
 		case "short_term":
-			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=short_term&limit=10", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=short_term&limit=%d", c.baseUrl, limit)
 		default:
-			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=long_term&limit=10", c.baseUrl)
+			apiURL = fmt.Sprintf("%sme/top/tracks?time_range=long_term&limit=%d", c.baseUrl, limit)
 	}
 
 	var ts TopSongs
@@ -219,13 +267,14 @@ func (c *Client) GetUserTopSongs(timeSpan string) (*[]Song, error) {
 }
 
 // TODO: Add return value
-func (c *Client) GetUserFavouriteGenres(artists []Artist) ([]string, error) {
+func (c *Client) GetUserFavouriteGenres(artists []Artist) (*[]string, error) {
 	// Get artists genres, find top count
 	//nil
 	var m map[string]int
 	// allocates and initializes
 	m = make(map[string]int)
 
+	// Get a count for each genre
 	for _, item := range artists {
 		for _, genre := range item.Genres {
 				m[genre]++
@@ -256,20 +305,127 @@ func (c *Client) GetUserFavouriteGenres(artists []Artist) ([]string, error) {
 		for _, genre := range genreArray[:5] {
 			top = append(top, genre.GenreName)
 		}
-		return top, nil
+		return &top, nil
 	}
 
 	for _, genre := range genreArray {
 		top = append(top, genre.GenreName)
 	}
 	
-	return top, nil
+	// Getting info for each
+
+	return &top, nil
 }
 
 // TODO: Add return value
-func (c *Client) GetRecommendedArtists() {
+func (c *Client) GetRecommendedArtists(artists []Artist) (*[]Artist, error) {
 	// spotify get --> Take artist IDs, and use https://developer.spotify.com/console/get-artist-related-artists/
+	var apiURL string
+	
+	//nil
+	var m map[string]int
+	// allocates and initializes
+	m = make(map[string]int)
+
+	type ArtistCount struct {
+		ArtistID string
+		Count int
+	}
+
+	// Get recommended top songs from each top artist, find the top count EXCEPT the top artists
+
+	for _, artist := range artists {
+		apiURL = fmt.Sprintf("%sartists/%s/related-artists", c.baseUrl, artist.Id)
+
+		var recommended Artists
+
+		// Get api request
+		response, err := c.connection.Get(apiURL)
+		if err != nil {
+			log.Println("Failed to request")
+			return nil, err
+		}
+
+		defer response.Body.Close()
+		
+		if err := json.NewDecoder(response.Body).Decode(&recommended); err != nil {
+			log.Println("Failed to convert JSON")
+			log.Println(err)
+			return nil, err
+		}
+
+		// Counting the recommended for each artist recommendation
+		for _, artist := range recommended.Artists {
+			m[artist.ID]++
+		}
+	}
+
+	var artistArray []ArtistCount
+	for aid, c := range m {
+		artistArray = append(artistArray, ArtistCount{aid, c})
+	}
+
+	// Sorting the slice by value
+	sort.Slice(artistArray, func(i, j int) bool {
+		return artistArray[i].Count > artistArray[j].Count
+	})
+
+	top := make([]string, 0)
+	var unique bool
+	var counter int
+
+	for _, recArtist := range artistArray {
+		for _, artist := range artists {
+			if recArtist.ArtistID == artist.Id {
+				unique = false
+				continue
+			}
+			unique = true
+		}
+
+		// Add the artist into top array
+		if unique {
+			top = append(top, recArtist.ArtistID)
+			counter++
+		}
+
+		// Only get 5
+		if counter == 5 {
+			break
+		}
+	}
+
+	var recommendArtists Artists
+
+	apiURL2 := fmt.Sprintf("%sartists?ids=%s,%s,%s,%s,%s", c.baseUrl, top[0], top[1], top[2], top[3], top[4])
+
+	// Get info of artists through multiple artists endpoint
+	response, err := c.connection.Get(apiURL2)
+	if err != nil {
+		log.Println("Failed to request")
+		return nil, err
+	}
+
+	defer response.Body.Close()
+	
+	if err := json.NewDecoder(response.Body).Decode(&recommendArtists); err != nil {
+		log.Println("Failed to convert JSON")
+		log.Println(err)
+		return nil, err
+	}
+
+	// Get the top 5 recommended artists information
+	finalzedArtists := make([]Artist, 0)
+
+	for _, item := range recommendArtists.Artists {
+		finalzedArtists = append(finalzedArtists, Artist{Id: item.ID, Uri: item.URI, ProfileUrl: item.ExternalUrls.Spotify, ImageUrl: item.Images[0].URL,
+			 Name: item.Name, Followers: item.Followers.Total, Popularity: item.Popularity, Genres: item.Genres})
+	}
+	
+
+	return &finalzedArtists, nil
 }
+
 
 // TODO: Add return value
 func (c *Client) GetRecommendedSongs() {
