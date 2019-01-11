@@ -327,7 +327,7 @@ func (c *Client) GetUserTopSongs(timeSpan string, limit int) (*[]Song, error) {
 	songs := make([]Song, 0)
 
 	for _, item := range ts.Items {
-		songs = append(songs, Song {Id: item.ID, Uri: item.URI, SongUrl: item.Href, Name: item.Name,
+		songs = append(songs, Song {Id: item.ID, Uri: item.URI, SongUrl: item.ExternalUrls.Spotify, Name: item.Name,
 			AlbumName: item.Album.Name, AlbumArtUrl: item.Album.Images[0].URL, Artist: item.Artists[0].Name})
 	}
 
@@ -518,7 +518,7 @@ func (c *Client) GetRecommendedSongs(recommendedArtists []Artist) (*[]Song, erro
 	songs := make([]Song, 0)
 
 	for _, item := range recommendations.Tracks {
-		songs = append(songs, Song {Id: item.ID, Uri: item.URI, SongUrl: item.Href, Name: item.Name,
+		songs = append(songs, Song {Id: item.ID, Uri: item.URI, SongUrl: item.ExternalUrls.Spotify, Name: item.Name,
 			AlbumName: item.Album.Name, AlbumArtUrl: item.Album.Images[0].URL, Artist: item.Artists[0].Name})
 	}
 

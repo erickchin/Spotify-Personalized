@@ -32,11 +32,13 @@ type Client struct  {
 }
 
 type Data struct {
-    Name string
+    Profile User
     //{{(index .Artist 0)}} {{(index .Artist 1)}} access arrays
     TopArtists []Artist
-    // TODO: Add the structs for 
-    
+    TopSongs []Song  
+    TopGenre []string
+    RecommendedArtists []Artist
+    RecommendedSongs []Song
 }
 
 func init() {
@@ -96,12 +98,24 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
 
 	client := Client {userClient, "https://api.spotify.com/v1/"}
     
+    userProfile, err := client.GetPersonalInfo()
+    topArtists5, err := client.GetUserTopArtists("medium_term", 5)
+    topArtists20, err := client.GetUserTopArtists("medium_term", 20)
+    topSongs, err := client.GetUserTopSongs("medium_term", 20)
+    topGenres, err := client.GetUserFavouriteGenres(*topArtists5)
+    recommendedArtists, err := client.GetRecommendedArtists(*topArtists20)
+    recommendedSongs, err := client.GetRecommendedSongs(*recommendedArtists)
+    log.Println((*topSongs)[0].SongUrl)
+    log.Println((*topSongs)[0].SongUrl)
+    log.Println((*topSongs)[0].SongUrl)
+
+    /*
     user, err := client.GetUserTopArtists("medium_term", 20)
     recommended, err := client.GetRecommendedArtists(*user)
     songs, err := client.GetRecommendedSongs(*recommended)
-    log.Println((songs))
+    log.Println((songs))*/
     
-    n := Data {Name: "Erick"}
+    n := Data {*userProfile, *topArtists5, *topSongs, *topGenres, *recommendedArtists, *recommendedSongs}
     index.Execute(w, n)
     index.ExecuteTemplate(w, "index.html", nil)
 
