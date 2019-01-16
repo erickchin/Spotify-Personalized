@@ -5,11 +5,9 @@ import (
     "html/template"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/spotify"
-    "../spotify/constants"
+    "../Spotify-Personalized/constants"
     "log"
 )
-
-const htmlIndex = "<html><body><a href='/SpotifyLogin'>Log in with Spotify</a></body></html>"
 
 var (
     spotifyOauthConfig = &oauth2.Config {
@@ -105,10 +103,7 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
     topGenres, err := client.GetUserFavouriteGenres(*topArtists5)
     recommendedArtists, err := client.GetRecommendedArtists(*topArtists20)
     recommendedSongs, err := client.GetRecommendedSongs(*recommendedArtists)
-    log.Println((*topSongs)[0].SongUrl)
-    log.Println((*topSongs)[0].SongUrl)
-    log.Println((*topSongs)[0].SongUrl)
-
+ 
     /*
     user, err := client.GetUserTopArtists("medium_term", 20)
     recommended, err := client.GetRecommendedArtists(*user)
@@ -116,7 +111,6 @@ func handleSpotifyCallback(w http.ResponseWriter, r *http.Request) {
     log.Println((songs))*/
     
     n := Data {*userProfile, *topArtists5, *topSongs, *topGenres, *recommendedArtists, *recommendedSongs}
-    index.Execute(w, n)
-    index.ExecuteTemplate(w, "index.html", nil)
+    index.ExecuteTemplate(w, "index.html", n)
 
 }

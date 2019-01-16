@@ -180,16 +180,6 @@
                 </div>
             </div>
             <br>
-
-            <nav aria-label="...">
-                <ul class="pagination pagination-lg justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">All-time</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">6 Months</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1 Month</a></li>
-                </ul>
-            </nav>
         </div>
 
     </div>
@@ -320,24 +310,11 @@
             </div>
         </div>
         <br>
-        <div>
-            <nav aria-label="...">
-                <ul class="pagination pagination-lg justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">All-time</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">6 Months</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1 Month</a></li>
-                </ul>
-            </nav>
-        </div>
-
     </div>
     <div id="top_genres" class="p-6 jumbotron border">
         <h3>Favourite Genres</h3>
         <br>
-
-    </div>
+        {{.TopGenre}}
     </div>
 
     <div id="recommended" class="p-6 jumbotron border">
@@ -349,7 +326,7 @@
                 <p>Add all time, currently?</p>
                 <div class="container-fluid panel-body row">
                     <div id="container" class="col p-3">
-                        <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 0).ImageUrl}}">
+                        <img id="image" style="max-width: 256px; overflow: hidden;" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 0).ImageUrl}}">
                         <div id="overlay">
                             <div id="text">
                                 <p>{{(index .RecommendedArtists 0).Name}}</p>
@@ -357,7 +334,7 @@
                         </div>
                     </div>
                     <div id="container" class="col p-3">
-                        <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 1).ImageUrl}}">
+                        <img id="image" style="max-width: 256px; overflow: hidden;" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 1).ImageUrl}}">
                         <div id="overlay">
                             <div id="text">
                                 <p>{{(index .RecommendedArtists 1).Name}}</p>
@@ -365,7 +342,7 @@
                         </div>
                     </div>
                     <div id="container" class="col p-3">
-                        <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 2).ImageUrl}}">
+                        <img id="image" style="max-width: 256px; overflow: hidden;" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 2).ImageUrl}}">
                         <div id="overlay">
                             <div id="text">
                                 <p>{{(index .RecommendedArtists 2).Name}}</p>
@@ -373,7 +350,7 @@
                         </div>
                     </div>
                     <div id="container" class="col p-3">
-                        <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 3).ImageUrl}}">
+                        <img id="image" style="max-width: 256px; overflow: hidden;" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 3).ImageUrl}}">
                         <div id="overlay">
                             <div id="text">
                                 <p>{{(index .RecommendedArtists 3).Name}}</p>
@@ -381,7 +358,7 @@
                         </div>
                     </div>
                     <div id="container" class="col p-3">
-                        <img id="image" style="max-width: 256px" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 4).ImageUrl}}">
+                        <img id="image" style="max-width: 256px; overflow: hidden;" class="border border-primary rounded img-fluid" src="{{(index .RecommendedArtists 4).ImageUrl}}">
                         <div id="overlay">
                             <div id="text">
                                 <p>{{(index .RecommendedArtists 4).Name}}</p>
@@ -395,86 +372,104 @@
                 <div class="row container-fluid p-3">
                     <div class="col">
                         <ul class="list-unstyled">
-                                <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 0).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 0).Name}}</h5>
-                                    {{(index .RecommendedSongs 0).Artist}}
-                                </div>
-                            </li></a>
-                            <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media my-4">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 1).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 1).Name}}</h5>
-                                    {{(index .RecommendedSongs 1).Artist}}
-                                </div>
-                            </li></a>
-                            <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 2).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 2).Name}}</h5>
-                                    {{(index .RecommendedSongs 2).Artist}}
-                                </div>
-                            </li></a>
+                            <a href="{{(index .RecommendedSongs 0).SongUrl}}">
+                                <li class="media">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 0).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 0).Name}}</h5>
+                                        {{(index .RecommendedSongs 0).Artist}}
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="{{(index .RecommendedSongs 1).SongUrl}}">
+                                <li class="media my-4">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 1).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 1).Name}}</h5>
+                                        {{(index .RecommendedSongs 1).Artist}}
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="{{(index .RecommendedSongs 2).SongUrl}}">
+                                <li class="media">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 2).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 2).Name}}</h5>
+                                        {{(index .RecommendedSongs 2).Artist}}
+                                    </div>
+                                </li>
+                            </a>
                         </ul>
                     </div>
                     <div class="col">
                         <ul class="list-unstyled">
-                                <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 3).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 3).Name}}</h5>
-                                    {{(index .RecommendedSongs 3).Artist}}
-                                </div>
-                            </li></a>
-                            <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media my-4">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 4).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 4).Name}}</h5>
-                                    {{(index .RecommendedSongs 4).Artist}}
-                                </div>
-                            </li></a>
-                            <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 5).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 5).Name}}</h5>
-                                    {{(index .RecommendedSongs 5).Artist}}
-                                </div>
-                            </li></a>
+                            <a href="{{(index .RecommendedSongs 3).SongUrl}}">
+                                <li class="media">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 3).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 3).Name}}</h5>
+                                        {{(index .RecommendedSongs 3).Artist}}
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="{{(index .RecommendedSongs 4).SongUrl}}">
+                                <li class="media my-4">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 4).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 4).Name}}</h5>
+                                        {{(index .RecommendedSongs 4).Artist}}
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="{{(index .RecommendedSongs 5).SongUrl}}">
+                                <li class="media">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 5).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 5).Name}}</h5>
+                                        {{(index .RecommendedSongs 5).Artist}}
+                                    </div>
+                                </li>
+                            </a>
                         </ul>
                     </div>
                     <div class="col">
                         <ul class="list-unstyled">
-                                <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 6).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 6).Name}}</h5>
-                                    {{(index .RecommendedSongs 6).Artist}} 
-                                </div>
-                            </li></a>
+                            <a href="{{(index .RecommendedSongs 6).SongUrl}}">
+                                <li class="media">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 6).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 6).Name}}</h5>
+                                        {{(index .RecommendedSongs 6).Artist}}
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="{{(index .RecommendedSongs 7).SongUrl}}">
+                                <li class="media my-4">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 7).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 7).Name}}</h5>
+                                        {{(index .RecommendedSongs 7).Artist}}
+                                    </div>
+                                </li>
+                            </a>
                             <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media my-4">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 7).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 7).Name}}</h5>
-                                    {{(index .RecommendedSongs 7).Artist}}
-                                </div>
-                            </li></a>
-                            <a href="{{(index .RecommendedSongs 8).SongUrl}}">
-                            <li class="media">
-                                <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 8).AlbumArtUrl}}" style="max-width: 128px" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 8).Name}}</h5>
-                                    {{(index .RecommendedSongs 8).Artist}} 
-                                </div>
-                            </li></a>
+                                <li class="media">
+                                    <img class="align-self-center mr-3" src="{{(index .RecommendedSongs 8).AlbumArtUrl}}"
+                                        style="max-width: 128px" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 pt-2">{{(index .RecommendedSongs 8).Name}}</h5>
+                                        {{(index .RecommendedSongs 8).Artist}}
+                                    </div>
+                                </li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -492,17 +487,16 @@
         </div>
     </div>
 
+    <footer class="page-footer font-small bg-dark text-light pt-5">
+        <div class="container-fluid text-center text-md-left">
+            <h5>Resources used:</h5>
+            <p>Spotify API, Bootstrap, jQuery, Go</p>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            <p class="text-center py-3">Developed by: <a href="https://github.com/erickchin">Erick Chin</a></p>
+        </div>
+    </footer>
 </body>
-
-<footer class="page-footer font-small bg-dark text-light pt-5">
-    <div class="container-fluid text-center text-md-left">
-        <h5>Resources used:</h5>
-        <p>Spotify API, Bootstrap, jQuery, Go</p>
-    </div>
-
-    <div class="footer-copyright text-center py-3">
-        <p class="text-center py-3">Developed by: <a href="https://github.com/erickchin">Erick Chin</a></p>
-    </div>
-</footer>
 
 </html>
